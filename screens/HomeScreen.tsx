@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
 
 const HomeScreen = () => {
@@ -12,14 +12,27 @@ const HomeScreen = () => {
       <View style={{ padding: 10 }}>
         <Text style={{ textAlign: 'center', color: '#d257d2', fontWeight: '600', fontSize: 20 }}>QUIZ RULES</Text>
         <View style={{ padding: 10, borderRadius: 6, backgroundColor: '#f2f6a2', marginTop: 15 }}>
-          <Text>1. Answer 10 Questions</Text>
-          <Text>2. Your Score Will be displayed when you finish!</Text>
+          <View style={{ alignItems: 'flex-start' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', margin: 5 }}>
+              <Text style={{ color: '#d257d2', fontWeight: '500' }}>•</Text>
+              <Text style={{ marginLeft: 5, color: '#d257d2', fontWeight: '500' }}>Each Question will display a 10 frame</Text>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', margin: 5 }}>
+              <Text style={{ color: '#d257d2', fontWeight: '500' }}>•</Text>
+              <Text style={{ marginLeft: 5, color: '#d257d2', fontWeight: '500' }}>Type Your Answer in the input provided</Text>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'center', margin: 5 }}>
+              <Text style={{ color: '#d257d2', fontWeight: '500' }}>•</Text>
+              <Text style={{ marginLeft: 5, color: '#d257d2', fontWeight: '500' }}>Answer all 10 questions to see your score!</Text>
+            </View>
+          </View>
         </View>
       </View>
+      <Pressable style={{ backgroundColor: '#d057d2', padding: 15 , borderRadius: 15, marginLeft: 'auto', marginRight: 'auto', marginTop: 15 }}>
+        <Text style={{ color: 'white', fontWeight: 600, fontSize: 20 }}>START QUIZ</Text>
+      </Pressable>
     </View>
   )
 }
 
 export default HomeScreen
-
-const styles = StyleSheet.create({})
