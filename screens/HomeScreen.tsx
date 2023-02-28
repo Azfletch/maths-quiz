@@ -26,7 +26,7 @@ const HomeScreen = () => {
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', margin: 5 }}>
               <Text style={{ color: '#d257d2', fontWeight: '500' }}>•</Text>
-              <Text style={{ marginLeft: 5, color: '#d257d2', fontWeight: '500' }}>Answer all 10 questions to see your score!</Text>
+              <Text style={{ marginLeft: 5, color: '#d257d2', fontWeight: '500' }}>Answer all 5 questions to see your score!</Text>
             </View>
           </View>
         </View>
