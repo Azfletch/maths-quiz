@@ -1,6 +1,6 @@
 import { SafeAreaView, StyleSheet, Text, View, Button, TextInput } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { Formik } from 'formik'
+import { Formik, Form, Field } from 'formik'
 
 import questions from "../data/questions"
 
@@ -96,19 +96,15 @@ const QuizScreen = () => {
         <TenFrame question={currentQuestion} />
         <View style={{ marginTop: 20 }}>
           <Formik
-            initialValues={{ answer: answer }}
-            onSubmit={values => console.log(values)}
+            initialValues={{ answer: '' }}
+            onSubmit={async (values) => setAnswer(values.answer)}
           >
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
-              <View>
-                <TextInput
-                  onChangeText={handleChange('answer')}
-                  onBlur={handleBlur('answer')}
-                  value={values.answer}
-                />
-                <Button onPress={handleSubmit} title="Submit" />
-              </View>
-            )}
+            <Form>
+              <label htmlFor="answer">Answer</label>
+              <Field id="answer" name="answer" type="numeric" placeholder="Type your answer here" />
+
+              <button type="submit">Submit</button>
+            </Form>
           </Formik>
         </View>
       </View>
