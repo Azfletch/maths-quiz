@@ -96,19 +96,18 @@ const QuizScreen = () => {
         <Text>({index}/{questions.length}) questions answered</Text>
       </View>
 
-      <View style={{ backgroundColor: '#f2f6a2', marginTop: 20, padding: 15 }}>
-        <Text style={{ fontSize: 20, fontWeight: '600', marginBottom: 20 }}>{currentQuestion?.question}</Text>
+      <View style={{ backgroundColor: '#f2f6a2', marginTop: 20, marginHorizontal: 10, padding: 15, borderRadius: 10 }}>
+        <Text style={{ textAlign: 'center', color: '#d257d2', fontWeight: '600', fontSize: 20, marginBottom: 20 }}>{currentQuestion?.question}</Text>
         <TenFrame question={currentQuestion} />
         <View style={{ marginTop: 20 }}>
           <Formik
             initialValues={{ answer: '' }}
             onSubmit={async (values) => setAnswer(values.answer)}
           >
-            <Form>
-              <label htmlFor="answer">Answer</label>
-              <Field id="answer" name="answer" type="numeric" placeholder="Type your answer here" />
+            <Form style={{ display: 'flex', flexDirection: 'column' }}>
+              <Field style={{ backgroundColor: 'white', padding: 15, borderRadius: 10 }} id="answer" name="answer" type="numeric" placeholder="Type your answer here" />
 
-              <button type="submit">Submit</button>
+              <button style={{ fontSize: 20, fontWeight: 600, color: 'white', backgroundColor: '#d057d2', padding: 15, borderRadius: 15, marginTop: 15 }} type="submit">Submit</button>
             </Form>
           </Formik>
         </View>
