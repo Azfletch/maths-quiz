@@ -12,12 +12,12 @@ interface QuizScreenProps {
 
 const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
   // Initialize State
-  const [answer, setAnswer] = useState('')
-  const [points, setPoints] = useState(0)
-  const [index, setIndex] = useState(0)
-  const [answerStatus, setAnswerStatus]: any = useState(null)
+  const [answer, setAnswer] = useState<number | null>(null)
+  const [points, setPoints] = useState<number>(0)
+  const [index, setIndex] = useState<number>(0)
+  const [answerStatus, setAnswerStatus] = useState<boolean | null>(null)
   const [answers, setAnswers]: any = useState([])
-  const [counter, setCounter] = useState(15)
+  const [counter, setCounter] = useState<number>(15)
 
   let interval: any = null
 
@@ -30,6 +30,7 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
 
       setIndex(index + 1)
       setCounter(15)
+      setAnswer(null)
       
     } else {
       setAnswerStatus(false)
@@ -101,8 +102,8 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
         <TenFrame question={currentQuestion} />
         <View style={{ marginTop: 20 }}>
           <Formik
-            initialValues={{ answer: '' }}
-            onSubmit={async (values) => setAnswer(values.answer)}
+            initialValues={{ answer: answer }}
+            onSubmit={async (values) => setAnswer(Number(values.answer))}
           >
             <Form style={{ display: 'flex', flexDirection: 'column' }}>
               <Field style={{ backgroundColor: 'white', padding: 15, borderRadius: 10 }} id="answer" name="answer" type="numeric" placeholder="Type your answer here" />
