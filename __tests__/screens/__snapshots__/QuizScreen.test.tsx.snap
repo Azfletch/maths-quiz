@@ -365,7 +365,7 @@ exports[`QuizScreen renders correctly 1`] = `
             }
           }
           type="numeric"
-          value=""
+          value={null}
         />
         <button
           style={
