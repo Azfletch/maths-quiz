@@ -13,6 +13,13 @@ exports[`QuizScreen renders correctly 1`] = `
     }
   >
     <Text
+      style={
+        {
+          "color": "#d257d2",
+          "fontSize": 20,
+          "fontWeight": "600",
+        }
+      }
       testID="quiz-title"
     >
       MATHS CHALLENGE
@@ -20,8 +27,11 @@ exports[`QuizScreen renders correctly 1`] = `
     <Text
       style={
         {
-          "backgroundColor": "magenta",
+          "backgroundColor": "#d057d2",
           "borderRadius": 10,
+          "color": "white",
+          "fontSize": 20,
+          "fontWeight": "600",
           "padding": 10,
         }
       }
