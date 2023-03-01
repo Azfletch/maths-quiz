@@ -1,9 +1,8 @@
 import { Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
 
-const HomeScreen = () => {
-  const navigation = useNavigation()
+const HomeScreen = (props: any) => {
+  const navigation: any = props.navigation
 
   return (
     <View style={{ marginTop: 30 }}>

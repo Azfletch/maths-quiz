@@ -1,9 +1,9 @@
 import { Text, View, Pressable } from 'react-native'
 import React from 'react'
-import { useRoute, useNavigation } from '@react-navigation/native'
+import { useRoute } from '@react-navigation/native'
 
-const ResultsScreen = () => {
-  const navigation = useNavigation()
+const ResultsScreen = (props: any) => {
+  const navigation: any = props.navigation
   const route = useRoute()
 
   const params: any = route.params

@@ -5,11 +5,11 @@ import { Formik, Form, Field } from 'formik'
 import questions from "../data/questions"
 
 import TenFrame from '../components/TenFrame'
-import { useNavigation } from '@react-navigation/native'
 
-const QuizScreen = () => {
+const QuizScreen = (props: any) => {
+  const navigation: any = props.navigation
+  
   // Initialize State
-  const navigation = useNavigation()
   const [answer, setAnswer] = useState('')
   const [points, setPoints] = useState(0)
   const [index, setIndex] = useState(0)
