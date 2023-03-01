@@ -85,8 +85,8 @@ const QuizScreen = (props: any) => {
   return (
     <SafeAreaView>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 10 }}>
-        <Text testID='quiz-title'>MATHS CHALLENGE</Text>
-        <Text testID='quiz-timer' style={{ padding: 10, backgroundColor: 'magenta', borderRadius: 10 }}>{counter}</Text>
+        <Text testID='quiz-title' style={{ color: '#d257d2', fontWeight: '600', fontSize: 20 }}>MATHS CHALLENGE</Text>
+        <Text testID='quiz-timer' style={{ padding: 10, backgroundColor: '#d057d2', borderRadius: 10, color: 'white', fontWeight: '600', fontSize: 20 }}>{counter}</Text>
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: 10 }}>
