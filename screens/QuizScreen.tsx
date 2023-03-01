@@ -27,16 +27,21 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
       setPoints((points => points + 1))
       setAnswerStatus(true)
       answers.push({ question: index + 1, answer: true })
-
-      setIndex(index + 1)
-      setCounter(15)
-      setAnswer(null)
       
     } else {
       setAnswerStatus(false)
       answers.push({ question: index + 1, answer: false })
     }
   }, [answer])
+
+  // change question when answer state populated
+  useEffect(() => {
+    if (answerStatus !== null) {
+      setIndex(index + 1)
+      setCounter(15)
+      setAnswer(null)
+    }
+  }, [answerStatus])
 
   // Handle answer status
   useEffect(() => {

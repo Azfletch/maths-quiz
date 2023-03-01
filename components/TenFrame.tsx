@@ -2,7 +2,7 @@ import { View } from 'react-native'
 import React from 'react'
 
 interface Frame {
-  counterColor: string
+  counterColor: 'red' | 'blue' | 'green' | 'white'
 }
 
 interface Question {
