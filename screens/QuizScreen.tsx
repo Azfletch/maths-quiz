@@ -107,7 +107,7 @@ const QuizScreen = () => {
             <Form style={{ display: 'flex', flexDirection: 'column' }}>
               <Field style={{ backgroundColor: 'white', padding: 15, borderRadius: 10 }} id="answer" name="answer" type="numeric" placeholder="Type your answer here" />
 
-              <button style={{ fontSize: 20, fontWeight: 600, color: 'white', backgroundColor: '#d057d2', padding: 15, borderRadius: 15, marginTop: 15 }} type="submit">Submit</button>
+              <button style={{ outline: 'none', fontSize: 20, fontWeight: 600, color: 'white', backgroundColor: '#d057d2', padding: 15, borderRadius: 15, marginTop: 15 }} type="submit">Submit</button>
             </Form>
           </Formik>
         </View>
