@@ -2,10 +2,13 @@ import { Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { useRoute } from '@react-navigation/native'
 
-const ResultsScreen = (props: any) => {
+interface ResultsScreenProps {
+  navigation: any
+}
+
+const ResultsScreen = ({ navigation }: ResultsScreenProps): JSX.Element => {
   const route = useRoute()
   const params: any = route.params
-  const navigation: any = props.navigation
 
   return (
     <View style={{ marginTop: 30, padding: 10 }}>

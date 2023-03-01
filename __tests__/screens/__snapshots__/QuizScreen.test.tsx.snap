@@ -50,10 +50,26 @@ exports[`QuizScreen renders correctly 1`] = `
       }
     }
   >
-    <Text>
+    <Text
+      style={
+        {
+          "color": "#d257d2",
+          "fontSize": 15,
+          "fontWeight": "600",
+        }
+      }
+    >
       Your Progress
     </Text>
-    <Text>
+    <Text
+      style={
+        {
+          "color": "#d257d2",
+          "fontSize": 15,
+          "fontWeight": "600",
+        }
+      }
+    >
       (
       0
       /

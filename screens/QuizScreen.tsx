@@ -6,9 +6,11 @@ import questions from '../data/questions'
 
 import TenFrame from '../components/TenFrame'
 
-const QuizScreen = (props: any) => {
-  const navigation: any = props.navigation
-  
+interface QuizScreenProps {
+  navigation: any
+}
+
+const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
   // Initialize State
   const [answer, setAnswer] = useState('')
   const [points, setPoints] = useState(0)
@@ -90,8 +92,8 @@ const QuizScreen = (props: any) => {
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: 10 }}>
-        <Text>Your Progress</Text>
-        <Text>({index}/{questions.length}) questions answered</Text>
+        <Text style={{ color: '#d257d2', fontWeight: '600', fontSize: 15 }}>Your Progress</Text>
+        <Text style={{ color: '#d257d2', fontWeight: '600', fontSize: 15 }}>({index}/{questions.length}) questions answered</Text>
       </View>
 
       <View style={{ backgroundColor: '#f2f6a2', marginTop: 20, marginHorizontal: 10, padding: 15, borderRadius: 10 }}>

@@ -1,22 +1,21 @@
 import { View } from 'react-native'
 import React from 'react'
 
-// interface Frame {
-//   counterColor: string
-// }
-
-// interface Question {
-//   question: string
-//   correctAnswer: number,
-//   frames: Frame[]
-// }
-
-interface TenFrameProps {
-  question: any
+interface Frame {
+  counterColor: string
 }
 
-const TenFrame = (props: TenFrameProps) => {
+interface Question {
+  question: string
+  correctAnswer: number,
+  frames: Frame[]
+}
 
+interface TenFrameProps {
+  question: Question
+}
+
+const TenFrame = (props: TenFrameProps): JSX.Element => {
   const frames = props?.question?.frames
 
   if (props.question && props.question.frames) {
