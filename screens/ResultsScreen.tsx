@@ -3,10 +3,9 @@ import React from 'react'
 import { useRoute } from '@react-navigation/native'
 
 const ResultsScreen = (props: any) => {
-  const navigation: any = props.navigation
   const route = useRoute()
-
   const params: any = route.params
+  const navigation: any = props.navigation
 
   return (
     <View style={{ marginTop: 30, padding: 10 }}>

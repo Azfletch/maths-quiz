@@ -2,7 +2,7 @@ import { SafeAreaView, Text, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik'
 
-import questions from "../data/questions"
+import questions from '../data/questions'
 
 import TenFrame from '../components/TenFrame'
 
@@ -18,8 +18,6 @@ const QuizScreen = (props: any) => {
   const [counter, setCounter] = useState(15)
 
   let interval: any = null
-
-  const progressPercentage = Math.floor((index/questions.length) * 100)
 
  // Handle correct answer 
   useEffect(() => {
@@ -87,8 +85,8 @@ const QuizScreen = (props: any) => {
   return (
     <SafeAreaView>
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 10 }}>
-        <Text>MATHS CHALLENGE</Text>
-        <Text style={{ padding: 10, backgroundColor: 'magenta', borderRadius: 10 }}>{counter}</Text>
+        <Text testID='quiz-title'>MATHS CHALLENGE</Text>
+        <Text testID='quiz-timer' style={{ padding: 10, backgroundColor: 'magenta', borderRadius: 10 }}>{counter}</Text>
       </View>
 
       <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginHorizontal: 10 }}>
