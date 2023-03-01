@@ -1,17 +1,17 @@
-import { SafeAreaView, StyleSheet, Text, View, Button, TextInput } from 'react-native'
+import { SafeAreaView, Text, View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik'
 
 import questions from "../data/questions"
 
 import TenFrame from '../components/TenFrame'
-// import AnswerInput from '../components/AnswerInput'
 import { useNavigation } from '@react-navigation/native'
 
 const QuizScreen = () => {
+  // Initialize State
   const navigation = useNavigation()
   const [answer, setAnswer] = useState('')
-  const [points, setPoints] = useState('0')
+  const [points, setPoints] = useState(0)
   const [index, setIndex] = useState(0)
   const [answerStatus, setAnswerStatus]: any = useState(null)
   const [answers, setAnswers]: any = useState([])
@@ -19,22 +19,30 @@ const QuizScreen = () => {
 
   let interval: any = null
 
+  const progressPercentage = Math.floor((index/questions.length) * 100)
+
+ // Handle correct answer 
   useEffect(() => {
-    console.log(answer)
     if (Number(answer) === Number(currentQuestion?.correctAnswer)) {
       setPoints((points => points + 1))
       setAnswerStatus(true)
       answers.push({ question: index + 1, answer: true })
+
+      setIndex(index + 1)
+      setCounter(15)
+      
     } else {
       setAnswerStatus(false)
       answers.push({ question: index + 1, answer: false })
     }
   }, [answer])
 
+  // Handle answer status
   useEffect(() => {
     setAnswerStatus(null)
   }, [index])
 
+  // Handle timer
   useEffect(() => {
     const myInterval = () => {
       if (counter >= 1) {
@@ -58,7 +66,6 @@ const QuizScreen = () => {
   // Handle navigation after last question
   useEffect(() => {
     const { length } = questions
-    console.log(index + 1, length)
     if(index + 1 > questions.length) {
 
       clearTimeout(interval)
@@ -88,8 +95,6 @@ const QuizScreen = () => {
         <Text>Your Progress</Text>
         <Text>({index}/{questions.length}) questions answered</Text>
       </View>
-
-      {/* Progress Bar */}
 
       <View style={{ backgroundColor: '#f2f6a2', marginTop: 20, padding: 15 }}>
         <Text style={{ fontSize: 20, fontWeight: '600', marginBottom: 20 }}>{currentQuestion?.question}</Text>
