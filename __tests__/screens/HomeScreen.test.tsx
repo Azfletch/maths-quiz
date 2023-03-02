@@ -10,10 +10,11 @@ describe('HomeScreen', () => {
     const navigate = jest.fn()
 
     // Act
-    const { getByText } = render(<HomeScreen navigation={{ navigate }} />)
-    fireEvent.press(getByText('START QUIZ'))
+    const homeScreen = render(<HomeScreen navigation={{ navigate }} />)
+    fireEvent.press(homeScreen.getByText('START QUIZ'))
 
     // Assert
+    expect(homeScreen).toMatchSnapshot()
     expect(navigate).toHaveBeenCalledWith('Quiz')
   })
 })  

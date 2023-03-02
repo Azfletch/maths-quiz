@@ -107,7 +107,7 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
         <TenFrame question={currentQuestion} />
         <View style={{ marginTop: 20 }}>
           <Formik
-            initialValues={{ answer: answer }}
+            initialValues={{ answer: '' }}
             onSubmit={async (values) => setAnswer(Number(values.answer))}
           >
             <Form style={{ display: 'flex', flexDirection: 'column' }}>
