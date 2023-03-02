@@ -1,6 +1,6 @@
-import { SafeAreaView, Text, View } from 'react-native'
+import { SafeAreaView, Text, View , TextInput, Pressable } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { Formik, Form, Field } from 'formik'
+import { Formik } from 'formik'
 
 import questions from '../data/questions'
 
@@ -108,13 +108,31 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
         <View style={{ marginTop: 20 }}>
           <Formik
             initialValues={{ answer: '' }}
-            onSubmit={async (values) => setAnswer(Number(values.answer))}
-          >
-            <Form style={{ display: 'flex', flexDirection: 'column' }}>
-              <Field style={{ backgroundColor: 'white', padding: 15, borderRadius: 10 }} id="answer" name="answer" type="numeric" placeholder="Type your answer here" />
-
-              <button style={{ outline: 'none', fontSize: 20, fontWeight: 600, color: 'white', backgroundColor: '#d057d2', padding: 15, borderRadius: 15, marginTop: 15 }} type="submit">Submit</button>
-            </Form>
+            onSubmit={async (values) => setAnswer(Number(values.answer))}>
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              errors,
+              touched,
+            }) => (
+              <View>
+                <TextInput
+                  style={{ backgroundColor: 'white', padding: 15, borderRadius: 10 }}
+                  placeholder="Answer"
+                  onChangeText={handleChange('answer')}
+                  onBlur={handleBlur('answer')}
+                  value={values.answer}
+                />
+                <Pressable
+                  style={{ backgroundColor: '#d057d2', padding: 15, borderRadius: 15, marginLeft: 'auto', marginRight: 'auto', marginTop: 15 }}
+                  onPress={handleSubmit}
+                >
+                  <Text style={{ color: 'white', fontWeight: '600', fontSize: 20 }}>SUBMIT</Text>
+                </Pressable>
+              </View>
+            )}
           </Formik>
         </View>
       </View>
