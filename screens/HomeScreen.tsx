@@ -1,11 +1,9 @@
-import { Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
+import { Text, View, Image, Pressable } from 'react-native'
 
-interface HomeScreenProps {
-  navigation: any
-}
+import { ScreenProps } from '../types'
 
-const HomeScreen = ({ navigation }: HomeScreenProps): JSX.Element => { 
+const HomeScreen = ({ navigation }: ScreenProps): JSX.Element => { 
   return (
     <View style={{ marginTop: 30 }}>
       <Image

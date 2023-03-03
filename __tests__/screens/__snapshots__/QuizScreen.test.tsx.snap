@@ -340,23 +340,11 @@ exports[`QuizScreen renders correctly 1`] = `
         }
       }
     >
-      <form
-        action="#"
-        onReset={[Function]}
-        onSubmit={[Function]}
-        style={
-          {
-            "display": "flex",
-            "flexDirection": "column",
-          }
-        }
-      >
-        <input
-          id="answer"
-          name="answer"
+      <View>
+        <TextInput
           onBlur={[Function]}
-          onChange={[Function]}
-          placeholder="Type your answer here"
+          onChangeText={[Function]}
+          placeholder="Answer"
           style={
             {
               "backgroundColor": "white",
@@ -364,27 +352,62 @@ exports[`QuizScreen renders correctly 1`] = `
               "padding": 15,
             }
           }
-          type="numeric"
           value=""
         />
-        <button
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             {
               "backgroundColor": "#d057d2",
               "borderRadius": 15,
-              "color": "white",
-              "fontSize": 20,
-              "fontWeight": 600,
+              "marginLeft": "auto",
+              "marginRight": "auto",
               "marginTop": 15,
-              "outline": "none",
               "padding": 15,
             }
           }
-          type="submit"
         >
-          Submit
-        </button>
-      </form>
+          <Text
+            style={
+              {
+                "color": "white",
+                "fontSize": 20,
+                "fontWeight": "600",
+              }
+            }
+          >
+            SUBMIT
+          </Text>
+        </View>
+      </View>
     </View>
   </View>
 </RCTSafeAreaView>

@@ -1,19 +1,6 @@
 import { View } from 'react-native'
 import React from 'react'
-
-interface Frame {
-  counterColor: 'red' | 'blue' | 'green' | 'white'
-}
-
-interface Question {
-  question: string
-  correctAnswer: number,
-  frames: Frame[]
-}
-
-interface TenFrameProps {
-  question: Question
-}
+import { TenFrameProps } from '../types'
 
 const TenFrame = (props: TenFrameProps): JSX.Element => {
   const frames = props?.question?.frames

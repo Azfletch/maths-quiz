@@ -1,14 +1,12 @@
-import { Text, View, Pressable } from 'react-native'
 import React from 'react'
-import { useRoute } from '@react-navigation/native'
+import { Text, View, Pressable } from 'react-native'
+import { useRoute, RouteProp } from '@react-navigation/native'
 
-interface ResultsScreenProps {
-  navigation: any
-}
+import { ScreenProps, ResultsScreenRouteParams } from '../types'
 
-const ResultsScreen = ({ navigation }: ResultsScreenProps): JSX.Element => {
-  const route = useRoute()
-  const params: any = route.params
+const ResultsScreen = ({ navigation }: ScreenProps): JSX.Element => {
+  const route: RouteProp<{ params: ResultsScreenRouteParams }, 'params'> = useRoute()
+  const { params } = route
 
   return (
     <View style={{ marginTop: 30, padding: 10 }}>

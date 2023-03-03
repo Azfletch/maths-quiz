@@ -5,7 +5,7 @@ import TenFrame from '../../components/TenFrame'
 
 import questions from '../../data/questions'
 
-test('Tenframe renders correctly', () => {
+test('TenFrame component renders correctly', () => {
   // Arrange
   const [question] = questions
 

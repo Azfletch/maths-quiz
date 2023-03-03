@@ -1,22 +1,19 @@
-import { SafeAreaView, Text, View , TextInput, Pressable } from 'react-native'
 import React, { useState, useEffect } from 'react'
+import { SafeAreaView, Text, View , TextInput, Pressable } from 'react-native'
 import { Formik } from 'formik'
 
 import questions from '../data/questions'
-
 import TenFrame from '../components/TenFrame'
 
-interface QuizScreenProps {
-  navigation: any
-}
+import { Question, ResultsAnswer, ScreenProps } from '../types'
 
-const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
+const QuizScreen = ({ navigation }: ScreenProps): JSX.Element => {
   // Initialize State
   const [answer, setAnswer] = useState<number | null>(null)
   const [points, setPoints] = useState<number>(0)
   const [index, setIndex] = useState<number>(0)
   const [answerStatus, setAnswerStatus] = useState<boolean | null>(null)
-  const [answers, setAnswers]: any = useState([])
+  const [answers, setAnswers] = useState<ResultsAnswer[]>([])
   const [counter, setCounter] = useState<number>(15)
 
   let interval: any = null
@@ -34,7 +31,7 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
     }
   }, [answer])
 
-  // change question when answer state populated
+  // Use answer status to reset state for next question
   useEffect(() => {
     if (answerStatus !== null) {
       setIndex(index + 1)
@@ -43,7 +40,7 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
     }
   }, [answerStatus])
 
-  // Handle answer status
+  // Reset answer status
   useEffect(() => {
     setAnswerStatus(null)
   }, [index])
@@ -69,10 +66,17 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
     }
   }, [counter])
 
+  // Reset timer
+  useEffect(() => {
+    if (!interval) {
+      setCounter(15)
+    }
+  }, [index])
+
   // Handle navigation after last question
   useEffect(() => {
     const { length } = questions
-    if(index + 1 > questions.length) {
+    if(index + 1 > length) {
 
       clearTimeout(interval)
       navigation.navigate('Results', {
@@ -82,13 +86,14 @@ const QuizScreen = ({ navigation }: QuizScreenProps): JSX.Element => {
     }
   }, [index])
 
+  // Reset timer
   useEffect(() => {
     if (!interval) {
       setCounter(15)
     }
   }, [index])
 
-  const currentQuestion = questions[index as any]
+  const currentQuestion: Question = questions[index]
 
   return (
     <SafeAreaView>
